@@ -5,54 +5,52 @@ import java.time.LocalDate;
 
 public class Funcionario {
 
-	private String nome;
-	private String cpf;
-	private Cargo cargo;
-	private BigDecimal salario;
+	private DadosPessoais dados = new DadosPessoais();
+	
 	private LocalDate dataUltimoReajuste;
 
 	public Funcionario(String nome, String cpf, Cargo cargo, BigDecimal salario) {
-		this.nome = nome;
-		this.cpf = cpf;
-		this.cargo = cargo;
-		this.salario = salario;
+		this.dados.setNome(nome);
+		this.dados.setCpf(cpf);
+		this.dados.setCargo(cargo);
+		this.dados.setSalario(salario);
 	}
 
 	public void reajustarSalario(BigDecimal novoSalario) {
-		this.salario = novoSalario;
+		this.dados.setSalario(novoSalario);
 		this.dataUltimoReajuste = LocalDate.now();
 	}
 
 	public String getNome() {
-		return nome;
+		return this.dados.getNome();
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.dados.setNome(nome);
 	}
 
 	public String getCpf() {
-		return cpf;
+		return this.dados.getCpf();
 	}
 
 	public void setCpf(String cpf) {
-		this.cpf = cpf;
+		this.dados.setCpf(cpf);
 	}
 
 	public Cargo getCargo() {
-		return cargo;
+		return this.getCargo();
 	}
 
 	public void setCargo(Cargo cargo) {
-		this.cargo = cargo;
+		this.dados.setCargo(cargo);
 	}
 
 	public BigDecimal getSalario() {
-		return salario;
+		return this.dados.getSalario();
 	}
 
 	public void setSalario(BigDecimal salario) {
-		this.salario = salario;
+		this.dados.setSalario(salario);
 	}
 
 	public LocalDate getDataUltimoReajuste() {
@@ -64,7 +62,7 @@ public class Funcionario {
 	}
 
 	public void promover(Cargo proximoCargo) {
-		this.cargo = proximoCargo;
+		this.dados.setCargo(proximoCargo);
 	}
 
 }
